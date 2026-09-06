@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name = "orders")
 public class Order extends BaseClass{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
