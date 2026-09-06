@@ -10,17 +10,15 @@ import java.util.Date;
 @Getter
 @Setter
 public class Review extends BaseClass{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Double rating;
     private String comment;
     private Date reviewDate;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn (name = "customerId")
     private Customer customer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "productId")
     private Product product;
 }

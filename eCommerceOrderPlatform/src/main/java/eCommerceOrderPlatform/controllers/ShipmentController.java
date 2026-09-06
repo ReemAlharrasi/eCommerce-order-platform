@@ -21,10 +21,11 @@ public class ShipmentController {
     @PostMapping("add")
     public Long addShipment(
             @RequestParam String trackingNumber,
-            @RequestParam String status) {
+            @RequestParam String status,
+            @RequestParam(required = false) Long orderId) {
 
         return shipmentService.createShipment(
-                trackingNumber, status
+                trackingNumber, status, orderId
         );
     }
 
@@ -42,10 +43,11 @@ public class ShipmentController {
     public Shipment updateShipment(
             @RequestParam Long id,
             @RequestParam String trackingNumber,
-            @RequestParam String status) {
+            @RequestParam String status,
+            @RequestParam(required = false) Long orderId) {
 
         return shipmentService.updateShipment(
-                id, trackingNumber, status
+                id, trackingNumber, status, orderId
         );
     }
 

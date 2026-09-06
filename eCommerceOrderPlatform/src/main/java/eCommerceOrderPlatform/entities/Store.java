@@ -10,17 +10,15 @@ import java.util.List;
 @Setter
 @Entity
 public class Store extends BaseClass{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String name;
     private String location;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Product> products;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Category> categories;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "store")
     private List<Customer> customers;
 }

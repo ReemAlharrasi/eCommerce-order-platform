@@ -10,14 +10,12 @@ import java.util.Date;
 @Getter
 @Setter
 public class Payment extends BaseClass{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Double amount;
     private String method;
     private String status;
     private Date paidDate;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="orderId")
     private Order order;
 }

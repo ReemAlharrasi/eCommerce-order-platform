@@ -22,10 +22,11 @@ public class PaymentController {
     public Long addPayment(
             @RequestParam Double amount,
             @RequestParam String method,
-            @RequestParam String status) {
+            @RequestParam String status,
+            @RequestParam(required = false) Long orderId) {
 
         return paymentService.createPayment(
-                amount, method, status
+                amount, method, status, orderId
         );
     }
 
@@ -44,10 +45,11 @@ public class PaymentController {
             @RequestParam Long id,
             @RequestParam Double amount,
             @RequestParam String method,
-            @RequestParam String status) {
+            @RequestParam String status,
+            @RequestParam(required = false) Long orderId) {
 
         return paymentService.updatePayment(
-                id, amount, method, status
+                id, amount, method, status, orderId
         );
     }
 

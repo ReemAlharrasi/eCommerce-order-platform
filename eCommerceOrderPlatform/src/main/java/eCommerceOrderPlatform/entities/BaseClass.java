@@ -10,8 +10,10 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 public class BaseClass {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Boolean isActive;
-    private Date createdDate;
-    private Date updatedDate;
+    private Boolean isActive = true;
+    private Date createdDate = new Date();
+    private Date updatedDate = new Date();
 }

@@ -19,8 +19,8 @@ public class CartController {
     }
 
     @PostMapping("add")
-    public Long addCart() {
-        return cartService.createCart();
+    public Long addCart(@RequestParam(required = false) Long customerId) {
+        return cartService.createCart(customerId);
     }
 
     @GetMapping("getAll")
@@ -31,6 +31,11 @@ public class CartController {
     @GetMapping("getById")
     public Cart getById(@RequestParam Long id) {
         return cartService.getById(id);
+    }
+
+    @PutMapping("update")
+    public Cart updateCart(@RequestParam Long id, @RequestParam(required = false) Long customerId) {
+        return cartService.updateCart(id, customerId);
     }
 
     @DeleteMapping("delete")

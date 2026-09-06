@@ -23,10 +23,11 @@ public class CustomerController {
             @RequestParam String name,
             @RequestParam String email,
             @RequestParam String phoneNumber,
-            @RequestParam String gender) {
+            @RequestParam String gender,
+            @RequestParam(required = false) Long storeId) {
 
         return customerService.createCustomer(
-                name, email, phoneNumber, gender
+                name, email, phoneNumber, gender, storeId
         );
     }
 
@@ -46,10 +47,11 @@ public class CustomerController {
             @RequestParam String name,
             @RequestParam String email,
             @RequestParam String phoneNumber,
-            @RequestParam String gender) {
+            @RequestParam String gender,
+            @RequestParam(required = false) Long storeId) {
 
         return customerService.updateCustomer(
-                id, name, email, phoneNumber, gender
+                id, name, email, phoneNumber, gender, storeId
         );
     }
 

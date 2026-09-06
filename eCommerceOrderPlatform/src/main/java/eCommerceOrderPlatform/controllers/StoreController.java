@@ -38,7 +38,7 @@ public class StoreController {
         return storeService.updateStore(id,name,location);
     }
 
-    @PutMapping("delete")
+    @DeleteMapping("delete")
     public Boolean deleteStore(@RequestParam Long id) {
         return storeService.deleteById(id);
     }

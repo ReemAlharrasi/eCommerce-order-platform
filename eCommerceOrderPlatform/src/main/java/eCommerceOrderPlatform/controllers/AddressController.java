@@ -23,10 +23,11 @@ public class AddressController {
             @RequestParam String street,
             @RequestParam String city,
             @RequestParam String postalCode,
-            @RequestParam String type) {
+            @RequestParam String type,
+            @RequestParam(required = false) Long customerId) {
 
         return addressService.createAddress(
-                street, city, postalCode, type
+                street, city, postalCode, type, customerId
         );
     }
 
@@ -46,10 +47,11 @@ public class AddressController {
             @RequestParam String street,
             @RequestParam String city,
             @RequestParam String postalCode,
-            @RequestParam String type) {
+            @RequestParam String type,
+            @RequestParam(required = false) Long customerId) {
 
         return addressService.updateAddress(
-                id, street, city, postalCode, type
+                id, street, city, postalCode, type, customerId
         );
     }
 

@@ -23,10 +23,12 @@ public class ProductController {
             @RequestParam String name,
             @RequestParam Double price,
             @RequestParam Integer stockQuantity,
-            @RequestParam String sku) {
+            @RequestParam String sku,
+            @RequestParam(required = false) Long categoryId,
+            @RequestParam(required = false) Long storeId) {
 
         return productService.createProduct(
-                name, price, stockQuantity, sku
+                name, price, stockQuantity, sku, categoryId, storeId
         );
     }
 
@@ -46,10 +48,12 @@ public class ProductController {
             @RequestParam String name,
             @RequestParam Double price,
             @RequestParam Integer stockQuantity,
-            @RequestParam String sku) {
+            @RequestParam String sku,
+            @RequestParam(required = false) Long categoryId,
+            @RequestParam(required = false) Long storeId) {
 
         return productService.updateProduct(
-                id, name, price, stockQuantity, sku
+                id, name, price, stockQuantity, sku, categoryId, storeId
         );
     }
 

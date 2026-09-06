@@ -19,8 +19,11 @@ public class CartItemController {
     }
 
     @PostMapping("add")
-    public Long addCartItem(@RequestParam Integer quantity) {
-        return cartItemService.createCartItem(quantity);
+    public Long addCartItem(
+            @RequestParam Integer quantity,
+            @RequestParam(required = false) Long cartId,
+            @RequestParam(required = false) Long productId) {
+        return cartItemService.createCartItem(quantity, cartId, productId);
     }
 
     @GetMapping("getAll")
@@ -36,9 +39,11 @@ public class CartItemController {
     @PutMapping("update")
     public CartItem updateCartItem(
             @RequestParam Long id,
-            @RequestParam Integer quantity) {
+            @RequestParam Integer quantity,
+            @RequestParam(required = false) Long cartId,
+            @RequestParam(required = false) Long productId) {
 
-        return cartItemService.updateCartItem(id, quantity);
+        return cartItemService.updateCartItem(id, quantity, cartId, productId);
     }
 
     @DeleteMapping("delete")

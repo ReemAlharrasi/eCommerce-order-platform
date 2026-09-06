@@ -21,9 +21,11 @@ public class ReviewController {
     @PostMapping("add")
     public Long addReview(
             @RequestParam Double rating,
-            @RequestParam String comment) {
+            @RequestParam String comment,
+            @RequestParam(required = false) Long customerId,
+            @RequestParam(required = false) Long productId) {
 
-        return reviewService.createReview(rating, comment);
+        return reviewService.createReview(rating, comment, customerId, productId);
     }
 
     @GetMapping("getAll")
@@ -40,10 +42,12 @@ public class ReviewController {
     public Review updateReview(
             @RequestParam Long id,
             @RequestParam Double rating,
-            @RequestParam String comment) {
+            @RequestParam String comment,
+            @RequestParam(required = false) Long customerId,
+            @RequestParam(required = false) Long productId) {
 
         return reviewService.updateReview(
-                id, rating, comment
+                id, rating, comment, customerId, productId
         );
     }
 

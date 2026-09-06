@@ -11,14 +11,12 @@ import java.util.List;
 @Getter
 @Setter
 public class Cart extends BaseClass {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Date cartCreatedDate;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name= "customerId")
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL)
     private List<CartItem> cartItems;
 }

@@ -21,9 +21,10 @@ public class OrderController {
     @PostMapping("add")
     public Long addOrder(
             @RequestParam String status,
-            @RequestParam Double totalAmount) {
+            @RequestParam Double totalAmount,
+            @RequestParam(required = false) Long customerId) {
 
-        return orderService.createOrder(status, totalAmount);
+        return orderService.createOrder(status, totalAmount, customerId);
     }
 
     @GetMapping("getAll")
@@ -40,10 +41,11 @@ public class OrderController {
     public Order updateOrder(
             @RequestParam Long id,
             @RequestParam String status,
-            @RequestParam Double totalAmount) {
+            @RequestParam Double totalAmount,
+            @RequestParam(required = false) Long customerId) {
 
         return orderService.updateOrder(
-                id, status, totalAmount
+                id, status, totalAmount, customerId
         );
     }
 

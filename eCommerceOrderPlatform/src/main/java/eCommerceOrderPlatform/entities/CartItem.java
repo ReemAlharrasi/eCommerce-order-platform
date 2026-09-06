@@ -8,15 +8,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CartItem extends BaseClass{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer quantity;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn (name = "cartId")
     private Cart cart;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn (name = "productId")
     private Product product;
 }

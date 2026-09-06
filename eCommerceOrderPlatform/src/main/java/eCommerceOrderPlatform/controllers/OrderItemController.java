@@ -21,9 +21,11 @@ public class OrderItemController {
     @PostMapping("add")
     public Long addOrderItem(
             @RequestParam Integer quantity,
-            @RequestParam Double unitPrice) {
+            @RequestParam Double unitPrice,
+            @RequestParam(required = false) Long orderId,
+            @RequestParam(required = false) Long productId) {
 
-        return orderItemService.createOrderItem(quantity, unitPrice);
+        return orderItemService.createOrderItem(quantity, unitPrice, orderId, productId);
     }
 
     @GetMapping("getAll")
@@ -40,10 +42,12 @@ public class OrderItemController {
     public OrderItem updateOrderItem(
             @RequestParam Long id,
             @RequestParam Integer quantity,
-            @RequestParam Double unitPrice) {
+            @RequestParam Double unitPrice,
+            @RequestParam(required = false) Long orderId,
+            @RequestParam(required = false) Long productId) {
 
         return orderItemService.updateOrderItem(
-                id, quantity, unitPrice
+                id, quantity, unitPrice, orderId, productId
         );
     }
 

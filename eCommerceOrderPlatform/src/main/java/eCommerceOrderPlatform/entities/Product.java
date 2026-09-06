@@ -10,27 +10,25 @@ import java.util.List;
 @Getter
 @Setter
 public class Product extends BaseClass{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String name;
     private double price;
     private Integer stockQuantity;
     private String sku;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product")
     private List<Review> reviews;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product")
     private List<CartItem> cartItems;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product")
     private List<OrderItem> orderItems;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "categoryId")
     private Category category;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "storeId")
     private Store store;
 }

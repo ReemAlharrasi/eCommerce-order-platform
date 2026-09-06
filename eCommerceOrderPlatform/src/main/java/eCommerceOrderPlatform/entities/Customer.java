@@ -10,26 +10,24 @@ import java.util.List;
 @Getter
 @Setter
 public class Customer extends BaseClass{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String name;
     private String email;
     private String phoneNumber;
     private String gender;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
     Cart cart;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Address> addresses;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer")
     private List<Review> reviews;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "storeId")
     private Store store;
 

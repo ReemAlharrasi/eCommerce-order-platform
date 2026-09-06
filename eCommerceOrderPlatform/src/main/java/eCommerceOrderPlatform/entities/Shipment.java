@@ -10,13 +10,11 @@ import java.util.Date;
 @Getter
 @Setter
 public class Shipment extends BaseClass{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String trackingNumber;
     private String status;
     private Date shippedDate;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "orderId")
     private Order order;
 }
