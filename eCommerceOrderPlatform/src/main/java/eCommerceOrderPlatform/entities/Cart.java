@@ -1,13 +1,11 @@
 package eCommerceOrderPlatform.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,4 +14,11 @@ public class Cart extends BaseClass {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date cartCreatedDate;
+
+    @OneToOne
+    @JoinColumn(name= "customerId")
+    private Customer customer;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<CartItem> cartItems;
 }

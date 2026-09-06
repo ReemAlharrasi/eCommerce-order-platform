@@ -1,9 +1,6 @@
 package eCommerceOrderPlatform.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,4 +15,8 @@ public class Shipment extends BaseClass{
     private Integer trackingNumber;
     private String status;
     private Date shippedDate;
+
+    @OneToOne
+    @JoinColumn(name = "orderId")
+    private Order order;
 }

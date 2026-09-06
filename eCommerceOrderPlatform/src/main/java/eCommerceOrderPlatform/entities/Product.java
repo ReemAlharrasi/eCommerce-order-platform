@@ -1,11 +1,10 @@
 package eCommerceOrderPlatform.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,4 +16,21 @@ public class Product extends BaseClass{
     private double price;
     private Integer stockQuantity;
     private String sku;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Review> reviews;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<CartItem> cartItems;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
+
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "storeId")
+    private Store store;
 }
