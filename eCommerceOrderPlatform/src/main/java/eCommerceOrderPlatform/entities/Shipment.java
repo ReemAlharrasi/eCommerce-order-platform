@@ -12,7 +12,7 @@ import java.util.Date;
 public class Shipment extends BaseClass{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer trackingNumber;
+    private String trackingNumber;
     private String status;
     private Date shippedDate;
 
