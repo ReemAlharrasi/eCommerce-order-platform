@@ -8,8 +8,8 @@ import java.util.Date;
 @Getter
 @Setter
 public class BaseClass {
-    Long id;
-    Boolean isActive;
-    Date createdDate;
-    Date updatedDate;
+    private Long id;
+    private Boolean isActive;
+    private Date createdDate;
+    private Date updatedDate;
 }
