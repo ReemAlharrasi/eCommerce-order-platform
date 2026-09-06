@@ -15,7 +15,7 @@ public class Cart extends BaseClass {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date cartCreatedDate;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name= "customerId")
     private Customer customer;
 

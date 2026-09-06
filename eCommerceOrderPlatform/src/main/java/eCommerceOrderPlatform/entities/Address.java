@@ -15,7 +15,7 @@ public class Address extends BaseClass{
     private String postalCode;
     private String type;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")
     private Customer customer;
 }

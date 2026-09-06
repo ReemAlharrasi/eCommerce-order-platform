@@ -18,7 +18,7 @@ public class Category extends BaseClass{
     @OneToMany(cascade = CascadeType.ALL)
     private List<Product> products;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="storeId")
     private Store store;
 }

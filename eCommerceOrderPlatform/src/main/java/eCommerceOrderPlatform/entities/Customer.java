@@ -29,7 +29,7 @@ public class Customer extends BaseClass{
     @OneToMany(cascade = CascadeType.ALL)
     private List<Review> reviews;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "storeId")
     private Store store;
 

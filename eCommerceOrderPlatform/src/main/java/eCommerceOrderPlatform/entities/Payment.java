@@ -17,7 +17,7 @@ public class Payment extends BaseClass{
     private String status;
     private Date paidDate;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="orderId")
     private Order order;
 }

@@ -26,7 +26,7 @@ public class Order extends BaseClass{
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")
     private Customer customer;
 }

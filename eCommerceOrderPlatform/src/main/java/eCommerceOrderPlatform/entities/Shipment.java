@@ -16,7 +16,7 @@ public class Shipment extends BaseClass{
     private String status;
     private Date shippedDate;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderId")
     private Order order;
 }

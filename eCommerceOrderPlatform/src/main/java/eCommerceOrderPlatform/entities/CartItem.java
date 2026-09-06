@@ -12,11 +12,11 @@ public class CartItem extends BaseClass{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer quantity;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "cartId")
     private Cart cart;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "productId")
     private Product product;
 }

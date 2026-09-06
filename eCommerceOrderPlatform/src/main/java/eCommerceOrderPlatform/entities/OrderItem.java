@@ -13,11 +13,11 @@ public class OrderItem extends BaseClass{
     private Integer quantity;
     private Double unitPrice;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "orderId")
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "productId")
     private Product product;
 }

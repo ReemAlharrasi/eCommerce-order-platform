@@ -26,11 +26,11 @@ public class Product extends BaseClass{
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoryId")
     private Category category;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "storeId")
     private Store store;
 }
